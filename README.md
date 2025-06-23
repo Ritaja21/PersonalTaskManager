@@ -150,6 +150,47 @@ http://localhost:5000/api/tasks
 #### Delete Task
 ![Screenshot 2025-06-21 004056](https://github.com/user-attachments/assets/9eae02c2-aff4-4907-a43f-30d92f2ad964)
 
+## 🧪 Tests
+
+This backend has comprehensive test coverage across:
+
+- 🧩 Unit tests (e.g., task controller methods)
+- 🔗 Integration tests (e.g., route-handler and DB flow)
+- 🌐 API tests (end-to-end via HTTP requests)
+
+All tests are written using:
+- [Jest](https://jestjs.io/)
+- [Supertest](https://github.com/visionmedia/supertest)
+- [MongoDB Memory Server](https://github.com/nodkz/mongodb-memory-server)
+
+### ✅ Test Summary
+- Test Suites: 3 passed, 3 total
+- Tests: 15 passed, 15 total
+- Time: ~3s
+
+### 📊 Test Coverage Table
+
+```
+
+| File                          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lines    |
+|------------------------------|---------|----------|---------|---------|--------------------|
+| All files                    | 87.75   | 50       | 100     | 89.58   |                    |
+| Task-Manager                 | 100     | 100      | 100     | 100     |                    |
+| └── app.js                   | 100     | 100      | 100     | 100     |                    |
+| Task-Manager/controllers     | 79.31   | 50       | 100     | 82.14   | 9, 20, 31, 41, 51  |
+| └── taskController.js        | 79.31   | 50       | 100     | 82.14   | 9, 20, 31, 41, 51  |
+| Task-Manager/models          | 100     | 100      | 100     | 100     |                    |
+| └── Tasks.js                 | 100     | 100      | 100     | 100     |                    |
+| Task-Manager/routes          | 100     | 100      | 100     | 100     |                    |
+| └── taskRoutes.js            | 100     | 100      | 100     | 100     |                    |
+```
+### ▶️ Run Tests
+
+```
+npm test
+```
+
+
 ## 🙋‍♀️ Author
 
 **Ritaja Tarafder**  
