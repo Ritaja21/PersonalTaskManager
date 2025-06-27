@@ -28,4 +28,4 @@ jobs:
         curl -LO https://github.com/keploy/keploy/releases/latest/download/keploy-linux-amd64.tar.gz
         tar -xvzf keploy-linux-amd64.tar.gz
         chmod +x keploy
-        ./keploy test --path ./Task-Manager/keploy-tests
+         ./keploy test --path ./keploy-tests
