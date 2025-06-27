@@ -24,8 +24,8 @@ jobs:
       run: docker run -d --name taskmanager-app -p 5000:5000 taskmanager-backend
 
     - name: Install Keploy CLI
-  run: |
-    curl --silent -L https://keploy.io/ent/install.sh | bash
+      run: |
+        curl --silent -L https://keploy.io/ent/install.sh | bash
 
     - name: Run Keploy Test Suite
       env:
@@ -35,4 +35,3 @@ jobs:
           --app=d3e8cfb8-27c9-4c5e-be63-2f4a591b92ee \
           --base-path=http://localhost:5000/ \
           --cloud
-
