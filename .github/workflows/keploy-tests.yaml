@@ -23,9 +23,16 @@ jobs:
     - name: Run Backend Container
       run: docker run -d --name taskmanager-app -p 5000:5000 taskmanager-backend
 
-    - name: Run Keploy API Tests
+    - name: Install Keploy CLI
+  run: |
+    curl --silent -L https://keploy.io/ent/install.sh | bash
+
+    - name: Run Keploy Test Suite
+      env:
+        KEPLOY_API_KEY: ${{ secrets.KEPLOY_API_KEY }}
       run: |
-        curl -LO https://github.com/keploy/keploy/releases/latest/download/keploy-linux-amd64.tar.gz
-        tar -xvzf keploy-linux-amd64.tar.gz
-        chmod +x keploy
-         ./keploy test --path ./keploy-tests
+        keploy test-suite \
+          --app=d3e8cfb8-27c9-4c5e-be63-2f4a591b92ee \
+          --base-path=http://localhost:5000/ \
+          --cloud
+
