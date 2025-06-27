@@ -1,0 +1,31 @@
+name: Keploy API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  keploy-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Backend Docker Image
+      run: docker build -t taskmanager-backend ./Task-Manager
+
+    - name: Run Backend Container
+      run: docker run -d --name taskmanager-app -p 5000:5000 taskmanager-backend
+
+    - name: Run Keploy API Tests
+      run: |
+        curl -LO https://github.com/keploy/keploy/releases/latest/download/keploy-linux-amd64.tar.gz
+        tar -xvzf keploy-linux-amd64.tar.gz
+        chmod +x keploy
+        ./keploy test --path ./Task-Manager/keploy-tests
