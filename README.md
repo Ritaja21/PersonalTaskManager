@@ -190,6 +190,20 @@ All tests are written using:
 npm test
 ```
 
+## ✅ API Testing with Keploy
+
+This project uses [Keploy](https://keploy.io) for automated API testing powered by AI. It ensures all API endpoints behave as expected using test cases generated from OpenAPI specs and real curl commands.
+
+### 📦 Test Suite Summary
+
+| Status       | Total Tests | Passed | Failed |
+|--------------|-------------|--------|--------|
+| 🟢 Automated | 159         | 20   | 139      |
+
+> These tests are auto-executed on every `push` or `pull request` to the `main` branch via **GitHub Actions**.
+
+![Test-summary](./assets/test-summary.png)
+![Test-suites](./assets/test-suites.png)
 
 ## 🙋‍♀️ Author
 
